@@ -25,7 +25,7 @@ const Logo = () => {
 
 const LanguageWrapper = styled.div`
   position: relative;
-  margin-right: 580px; 
+  margin-right: auto;
 `;
 
 const Language = () => {
@@ -125,7 +125,7 @@ const HeaderWrapper = styled.div`
   right: 0;
   left: 0;
   z-index: 100;
-  width: 100%;
+  width: 100vw;
   height: 118px;
   background-color: white;
   display: flex;

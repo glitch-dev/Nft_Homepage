@@ -46,6 +46,7 @@ const FooterWrapper = styled.div`
   bakcgournd-color: white;
   display: flex;
   justify-content: center;
+  box-shadow: 0 -5px 30px 10px rgb(0 0 0 / 6%);
 `;
 
 const FooterArea = styled.div`
@@ -84,8 +85,7 @@ const FooterCardDesc = styled.div`
   text-align: center;
 `;
 
-const FooterPartition = styled.img`
-`;
+const FooterPartition = styled.img``;
 
 const FooterContactWrapper = styled.div`
   width: 500px;

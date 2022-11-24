@@ -29,6 +29,7 @@ html {
 }
 body {
   width: 100%;
+  min-width: 1920px;
   margin: 0;
 }
 @font-face {
