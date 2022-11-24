@@ -2,6 +2,40 @@ import React from 'react';
 import styled from 'styled-components';
 import { ContainerWithoutMargin } from './Container';
 
+interface footerCardProps {
+  image: string;
+  alt?: string;
+  title: string;
+  desc: string;
+}
+
+const cardList = [
+  {
+    image: '/images/icons/money.png',
+    alt: 'paymenet setting',
+    title: '결제 설정',
+    desc: '원하는 결제 수단을 설정한 후 이 링크를 클릭해 NFT 마켓에 연결하세요.'
+  },
+  {
+    image: '/images/icons/collect.png',
+    alt: 'collection management',
+    title: '컬렉션 관리',
+    desc: '구매한 상품을 한 눈에 보고 관리할 수 있습니다.'
+  },
+  {
+    image: '/images/icons/export.png',
+    alt: 'add nft',
+    title: 'NFT 추가',
+    desc: 'NFT를 추가하고 상품 정보를 설정 및 관리하세요.'
+  },
+  {
+    image: '/images/icons/mail.png',
+    alt: 'receive notification',
+    title: '소식 받기',
+    desc: '새로 추가된 상품에 대한 소식을 실시간으로 전달해 드립니다.'
+  },
+];
+
 const FooterWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -69,12 +103,13 @@ const FooterContactWrapper = styled.div`
   }
 `;
 
-const FooterCard = () => {
+const FooterCard: React.FC<footerCardProps> = props => {
+  const { image, alt, title, desc } = props;
   return (
     <FooterCardWrapper>
-      <FooterCardIcon src="/images/icons/money.png" alt="payment settings" />
-      <FooterCardTitle>결제 설정</FooterCardTitle>
-      <FooterCardDesc>원하는 결제 수단을 설정한 후 이 링크를 클릭해 NFT 마켓에 연결하세요.</FooterCardDesc>
+      <FooterCardIcon src={image} alt={alt} />
+      <FooterCardTitle>{title}</FooterCardTitle>
+      <FooterCardDesc>{desc}</FooterCardDesc>
     </FooterCardWrapper>
   );
 }
@@ -85,10 +120,9 @@ const Footer = () => {
       <ContainerWithoutMargin>
         <FooterArea>
           <FooterCardList>
-            <FooterCard />
-            <FooterCard />
-            <FooterCard />
-            <FooterCard />
+            {
+              cardList.map(card => <FooterCard key={`footer-card-${card.alt}`} {...card}/>)
+            }
           </FooterCardList>
           <FooterPartition src="/images/footer_partition.png" alt="footer partition"/>
           <FooterContactWrapper>
